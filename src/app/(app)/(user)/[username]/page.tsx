@@ -1,8 +1,19 @@
 import React from 'react'
 
-const Page = () => {
+interface PageProps {
+  params: Promise<{
+    username: string;
+  }>
+};
+
+const Page = async ({ params }: PageProps) => {
+
+  const { username } = await params;
+
   return (
-    <div>Global User Page</div>
+    <div>
+      <p>Global User Page for {username} </p>
+    </div>
   );
 };
 

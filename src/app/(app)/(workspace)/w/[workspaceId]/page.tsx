@@ -1,8 +1,19 @@
 import React from 'react'
 
-const Page = () => {
+interface PageProps {
+  params: Promise<{
+    workspaceId: string;
+  }>
+};
+
+const Page = async ({ params }: PageProps) => {
+
+  const { workspaceId } = await params;
+
   return (
-    <div>Workspace Page</div>
+    <div>
+      <p>Workspace Id: {workspaceId} </p>
+    </div>
   );
 };
 

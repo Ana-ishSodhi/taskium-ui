@@ -1,17 +1,18 @@
 import React from 'react'
-import Image from "next/image";
-import Link from "next/link";
+import Toolbar from "./toolbar";
+import Sidebar from "./Sidebar";
+
 
 const MainLayout = ({ children } : { children : React.ReactNode }) => {
 
     return (
-        <div className="bg-muted flex min-h-svh flex-col justify-center items-center gap-6 p-6 md:p-10">
-            <div className="flex w-full max-w-sm flex-col gap-6">
-                <Link href="/" className="flex items-center gap-2 self-center font-medium">
-                    <Image src="/logos/logo.svg" alt="Taskium" width={30} height={30}/>
-                    Main App Layout
-                </Link>
-                {children}
+        <div className="h-full">
+            <Toolbar />
+            <div className="flex h-[calc(100vh-48px)]">
+                <Sidebar />
+                <div className="flex-1">
+                    {children}
+                </div>
             </div>
         </div>
     );
